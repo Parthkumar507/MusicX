@@ -1,0 +1,670 @@
+body {
+    background-image: var(--background-image);
+  
+    margin: 0px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: white;
+  }
+  /* removing all the styles from the links and formatting them white */
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  /* removing margin for all the textual elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0px;
+  }
+  nav {
+    height: auto;
+    width: auto;
+  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+    z-index: 1; /*Navigation   should be always at top z-index ensures that */
+    background-image: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
+    transition: all ease-in-out 1s; /* when the navbar loads, every property transits for 1s */
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  /* all the divs inside the navigation bar should be placed side by side*/
+  nav > div {
+    display: inline-block;
+  }
+  
+  /* animation for the website logo */
+  @keyframes rotating {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  #logo-img-div img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    animation-name: rotating;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  #logo-title-div {
+    display: inline;
+    color: white;
+    font-family: helvetica, sans-serif;
+    padding: 5px;
+    margin-top: 7px;
+  }
+  
+  #logo-div > div {
+    vertical-align: middle;
+    display: inline-block;
+  }
+  
+  /* Favorites  */
+  @keyframes flexible {
+    75% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  /* favourites text */
+  #nav-fav {
+    animation-name: flexible;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+    perspective: 10000px;
+    transform-style: preserve-3d;
+    animation-iteration-count: infinite;
+  }
+  
+  /* Search bar */
+  #search-div {
+    width: 20%;
+    position: relative;
+  }
+  
+  #search-div input {
+    width: 100%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 18px;
+    border: none;
+    padding: 5px;
+    font-weight: 500;
+    text-align: center;
+    transition: all ease-in-out 0.1s;
+  }
+  #mag-glass-div {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  #voice-div {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* search icon */
+  #search-div > div:nth-child(1) {
+    display: inline-block;
+    position: absolute;
+    width: min-content;
+    left: 5%;
+    top: 10%;
+    transition: all ease-in-out 0.1s;
+  }
+  /* mic icon */
+  #search-div > div:nth-child(3) {
+    display: inline-block;
+    position: absolute;
+    width: min-content;
+    right: 0%;
+    top: 10%;
+    transition: all ease-in-out 0.1s;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  /* animation for bell image */
+  
+  @keyframes ringing_bell {
+    0% {
+      transform: rotate(-15deg);
+    }
+    50% {
+      transform: rotate(15deg);
+    }
+    100% {
+      transform: rotate(-15deg);
+    }
+  }
+  
+  /* notification bell image */
+  
+  #notification-div i {
+    /* width: 40px;
+    height: 30px; */
+    animation-name: ringing_bell;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 10s;
+    position: first;
+  }
+  
+  #profile-div img {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+  }
+  
+  /* Nav Bar Complete */
+  
+  /***********************************************************/
+  /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+  /* main */
+  main {
+    width: 100%;
+    padding: 0% 3%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transition: all ease-in-out 1s;
+    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PDg0QDQ0NDw4NDREPDQ0NDRANDQ0NFREWFhURFRMYHikgGBolGxUTITIiJykrLi4uFyszODMtNyguLisBCgoKDQ0NGg8NFSsdHSUrOC8rKy0uODc3Ny04KysuLS03Ny0tKys4OCs3Ny0rKy03KysrKzcrKys4KysuLys3K//AABEIALEBHAMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAAAAQIEAwUH/8QALhABAAIBAgQEBAYDAAAAAAAAAAECEQMhBBIxUSJBYYETUnGRBTKhweHwQmKS/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAMAwEAAhEDEQA/APw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABqkbxnPt1ZWJBbxif4wy3qTEztn6T5f2MMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1p4z4omY7VmIn74lLYzOM4ztnrggtGJkEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAb1YiJ2nMYYemr0r4cbdfm9QeYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCD0pGW/gz2r36wDwe1q25InE8sTiJ/wAYnzhjUrid4w96UzSc2iJidqTnNs9vIHKPadL0v/zJ8H1mPrWQeI9J0o+arM0x29gZAAAAAAAAAAAAAAAAAAAAAAAAAAWEUGtPq6Y4uMY5Z6Y2t5Zy59PqxIPqcFpfH1MZ062tmefUnFKxFZtMziJ7dntqcPel9TTxeLRWYvWlK6m9ZmJzMz4Y9YfO/D9e1NSJraa2zE1tWZrMWjpiYfctw+nq0m+rNueLfN+abb7zMTvMxIPm6etpbZrqxFIt5RvE7Tnf1dPDcfoVrFZm84zvauZ6vP8AE+H+FMxiYiaRO+Jn8vfz3y+QD7McRw+c/Etjn5uWdOZjlxvX77vD8S1dC8zOjiuZ2rEW6ecZl81adYSLcjMotus/VFQAAAAAAAAAAAAAAAAAAAAAAAAVFBvT6sS3pdWAb0aTMxjvD7enfw9fN83hq4iZ9vef4y+lwevybx8s/fy/WIB58bHNT2w5+H/Cb2m82nk06U57as1maziImYjv1n7Poaurz6cRPNzRNpnM5rvjaPPyfN1+L1K0mlbYpbMWia1mcT64yDgXT6wy1p9YBm3Wfqiz1lAAAAAAAAAAAAAAAAAAAAAAABqcMgKAN6fVhrT6+zAO3QttMesfu6M+HrjHnHk4NCd/q79CdhW9Oab+O9rYxHgty+8zjH2c3ExGLb7/AC4nOO7umdnBr22nM83XG85p6YEcTWn1TBGwJKNTCAgoCAAAAAAAAAAAAAAAAAAAADexiAZGuWF5I7glP2YesU/2/QmkdwYrLq0dZz8kd15ag7Z4jZyXtnLOY7MzYF2TmTKAuUEBRAAAAAAAAAAAAAAAAAAAAABcoAuTKALkygC5MoAqAAAAAAAAAAAAAAAAAAAAAAAANVmPOGs17T/fcHmNXmPKGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/2Q==");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* there are two aside sections both of them will have this class 
+  (I have taken care of the re-usability of the classes and removed redundancy) */
+  .aside {
+    display: inline-block;
+    overflow: hidden;
+  }
+  /* section one of the main part */
+  .section-1 {
+    width: 70%;
+    height: 85vh;
+    overflow: scroll;
+  }
+  /* overflow should be scrollable but the scroll bar should be hidden*/
+  .section-1::-webkit-scrollbar {
+    display: none;
+  }
+  /* section 2 of the main part */
+  .section-2 {
+    width: 28%;
+    height: 85vh;
+    z-index: 2;
+  }
+  
+  /* aside section 1 */
+  /* jumbotron */
+  .jumbotron {
+    height: 20vw;
+    width: 100%;
+    margin-top: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #141b41;
+  
+    margin-bottom: 40px;
+    position: relative;
+  }
+  /* image insider jumbotron */
+  .jumbotron-image {
+    height: 20vw;
+    width: 20vw;
+    background-image: linear-gradient(to bottom, transparent, rgba(20, 27, 65, 1)),
+      url("data:image/jpeg;base64,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");
+    background-size: cover;
+  }
+  /* right part of the jumbotron */
+  .jumbotron-detail {
+    width: 67%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-right: 12px;
+  }
+  /* descriptive part contains the descripton of the song and action part contains the follow and play buttons */
+  .descriptive-part,
+  .action-part {
+    width: 100%;
+    height: max-content;
+  }
+  
+  .song-name-div h1 {
+    color: cyan;
+  }
+  .author {
+    color: hotpink;
+  }
+  
+  /* song name and followers */
+  .song-name-main,
+  .followers {
+    display: inline-block;
+  }
+  /* song name heading properties */
+  .song-name-main h1 {
+    font-size: 2vw;
+  }
+  /* follower count */
+  .followers {
+    position: absolute;
+    right: 0%;
+    top: 5%;
+  }
+  /* self explanatory */
+  .followers,
+  .author {
+    font-size: 1.5vw;
+  }
+  /* description of the jumbotron */
+  .desc {
+    font-size: 1vw;
+  }
+  
+  .action-part p {
+    font-size: 1vw;
+  }
+  .btns > button {
+    border: 0px;
+    height: 3vw;
+    width: 10vw;
+    color: white;
+    font-size: 1.2vw;
+  }
+  /* play button */
+  .btns > button:nth-child(1) {
+    background-image: linear-gradient(-19deg, red 0%, blue 100%);
+  }
+  /* follow button */
+  .btns > button:nth-child(2) {
+    background-color: transparent;
+  }
+  
+  /* ///// */
+  /* particular item in the playlist */
+  .playlist-item {
+    height: 8vh;
+  
+    box-sizing: border-box;
+    background-color: #1a1e33;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    /* transition: all ease-in-out 0.1s; */
+  }
+  .playlist-item:hover {
+    background-color: #2e3249;
+  }
+  
+  /* Left Part  */
+  .left {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    padding: 0% 1%;
+  }
+  /* Center */
+  .center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    height: 100%;
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100%;
+    padding-right: 2%;
+  }
+  /* now adjusting the contents of left, center and right parts */
+  .left > div:nth-child(2) {
+    height: 80%;
+    min-width: 50px;
+    max-width: 50px;
+    margin: 0px 12% 0px 12%;
+    position: relative;
+  }
+  .left > div:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+  }
+  .left > div:nth-child(3) p {
+    color: rgb(185, 185, 185);
+  }
+  /* customizing the play button */
+  .play-btn {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.1s;
+  }
+  /* on hover effects */
+  .play-btn:hover {
+    opacity: 0.7;
+    color: yellow;
+  }
+  /* adjusting fonts in the playlist items  */
+  .left div p {
+    font-size: 14px;
+  }
+  .center {
+    font-size: 12px;
+    color: rgb(185, 185, 185);
+  }
+  .right {
+    color: rgb(185, 185, 185);
+  }
+  .right div:nth-child(2) {
+    margin-left: 27%;
+  }
+  
+  /* Second Section Starts Here */
+  
+  /* More Part */
+  label {
+    display: none;
+    position: absolute;
+    right: 0%;
+    top: 20%;
+    padding-bottom: 5px;
+    z-index: 3;
+    box-shadow: 0px 0px 2px 1px white;
+    width: 70px;
+    font-size: 20px;
+    height: 21px;
+    text-align: center;
+    background-image: linear-gradient(red, blue);
+  }
+  
+  /* on a normal display, it will be hidden */
+  label ~ input {
+    display: none;
+  }
+  
+  /* Aside section-2 */
+  .section-heading {
+    margin-top: 10px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  /* adjusting for side by side display */
+  .section-heading div,
+  .section-heading h1 {
+    display: inline-block;
+  }
+  
+  .section-heading h1 {
+    font-size: 23px;
+  }
+  .section-heading div {
+    position: absolute;
+    bottom: 0%;
+    right: 0px;
+    font-size: 14px;
+  }
+  .list {
+    height: 36vh;
+    overflow: scroll;
+  }
+  /* hiding the scrollbar */
+  .list::-webkit-scrollbar {
+    display: none;
+  }
+  /* this is particular item in the "list  container*/
+  .list-item {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  /* hovering effect for the list item */
+  .list-item:hover {
+    background-color: #2e3249;
+  }
+  /* adjusting the name and image of the songs relative to their original position */
+  .list-item > div:nth-child(1) {
+    width: 100px;
+    height: 100%;
+    position: relative;
+  }
+  .list-item > div:nth-child(1) > img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .author-name {
+    font-size: 12px;
+    color: rgb(185, 185, 185);
+  }
+  .extra {
+    text-align: right;
+    height: 100%;
+  }
+  
+  /* //////////////////////////////// */
+  /* Footer */
+  
+  footer {
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    height: 60px;
+    background-color: #746c6e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0px 3%;
+    box-sizing: border-box;
+    z-index: 6;
+  }
+  
+  /* Footer 1st part */
+  /* Active song description */
+  .active-song-description {
+    height: 90%;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  /* the current song which is being played, this is the image container for that. */
+  #song-image {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+  }
+  #song-image img {
+    width: 100%;
+    height: 100%;
+  }
+  /* heart and ban icon */
+  .heart-and-ban-icon {
+    height: 100%;
+    padding-top: 4%;
+    display: flex;
+    flex-direction: column;
+  }
+  .heart-and-ban-icon span i:nth-child(1).fa-heart {
+    color: red;
+  }
+  
+  @keyframes glowing-heart {
+    0% {
+      color: pink;
+    }
+    50% {
+      color: orangered;
+    }
+    100% {
+      color: red;
+    }
+  }
+  
+  .fa-heart:hover {
+    animation-name: glowing-heart;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    cursor: pointer;
+  }
+  
+  /* song desc */
+  .song-desc {
+    margin-right: 1%;
+    margin-left: 1%;
+    color: yellow;
+  }
+  
+  /* song name */
+  .song-desc div:nth-child(1) {
+    font-size: 14px;
+  }
+  /* song author */
+  .song-desc div:nth-child(2) {
+    font-size: 10px;
+  }
+  
+  /* Player */
+  
+  .player {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    color: lightpink;
+  }
+  /* controls is the container for all the center controls of the player */
+  .controls {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+  }
+  .controls div i {
+    color: whitesmoke;
+  }
+  .controls div i:hover {
+    cursor: pointer;
+  }
+  
+  /* this is the song-duration slider */
+  #slider {
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+  }
+  /* ////////// */
+  .time {
+    margin: 0px 10px;
+  }
+  
+  /* adjusting the slider for better visuals */
+  .slidecontainer {
+    width: 100%;
+  }
+  /* for audio and main center player */
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.5;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+  }
+  /* hover effect for the slider */
+  .slider:hover {
+    opacity: 1;
+  }
+  /* these are for adjusting the dimensions and default styling of the long-slider */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+  }
+  /* this is the circular thumb, which can be moved across the div */
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4caf50;
+    cursor: pointer;
+  }
+  /* this contains the extra icons and slider for volume */
+  /* this is also a container */
+  .extras {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
